@@ -1,0 +1,53 @@
+{
+  "name": "campus-attendance",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "نظام إدارة حضور الطلاب الجامعي",
+  "scripts": {
+    "dev": "concurrently -k -n API,WEB -c cyan,magenta \"npm:dev:server\" \"npm:dev:web\"",
+    "dev:server": "node --watch server/index.mjs",
+    "dev:web": "vite",
+    "migrate": "node server/db/migrate.mjs",
+    "seed:admin": "node server/db/seed-admin.mjs",
+    "setup": "npm run migrate && npm run seed:admin",
+    "build": "vite build",
+    "typecheck": "tsc --noEmit",
+    "start": "node server/start-production.mjs",
+    "download:font": "node server/scripts/download-font.mjs"
+  },
+  "dependencies": {
+    "axios": "^1.12.2",
+    "bcryptjs": "^3.0.2",
+    "compression": "^1.8.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^17.2.2",
+    "exceljs": "^4.4.0",
+    "express": "^5.1.0",
+    "express-rate-limit": "^8.1.0",
+    "firebase": "^11.10.0",
+    "helmet": "^8.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "lucide-react": "^0.468.0",
+    "multer": "^2.0.2",
+    "mysql2": "^3.15.3",
+    "pdfkit": "^0.17.2",
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0",
+    "react-router-dom": "^7.9.5",
+    "recharts": "^2.15.4",
+    "sql.js": "^1.17.0",
+    "zod": "^4.1.12"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.2",
+    "@types/react-dom": "^19.2.2",
+    "@vitejs/plugin-react": "^5.1.0",
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.3",
+    "vite": "^7.1.12"
+  },
+  "allowScripts": {
+    "esbuild@0.28.2": true
+  }
+}
